@@ -1,0 +1,591 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    color: #ffffff;
+    background: linear-gradient(135deg, #0a0a0a 0%, #2a1a3e 50%, #3e1a3e 100%);
+    overflow-x: hidden;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+}
+
+.logo-text h1 {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: #c778dd;
+    text-shadow: 0 0 20px rgba(199, 120, 221, 0.5);
+    margin: 0;
+}
+
+.logo-text .esports {
+    font-size: 0.8rem;
+    color: #888;
+    font-weight: 300;
+    display: block;
+    margin-top: -5px;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 400;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: #c778dd;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: linear-gradient(90deg, #c778dd, #9d4edd);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: #c778dd;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1200px;
+    padding: 0 2rem;
+    z-index: 2;
+}
+
+.hero-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.pentagon-text {
+    display: block;
+    background: linear-gradient(45deg, #c778dd, #9d4edd, #e0aaff);
+    background-size: 200% 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient 3s ease infinite;
+}
+
+.esports-text {
+    display: block;
+    color: #ffffff;
+    font-size: 0.7em;
+    font-weight: 400;
+    opacity: 0.8;
+    letter-spacing: 0.5em;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: #cccccc;
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #c778dd, #9d4edd);
+    color: #ffffff;
+    border: none;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(199, 120, 221, 0.3);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #c778dd;
+    border: 2px solid #c778dd;
+}
+
+.btn-secondary:hover {
+    background: #c778dd;
+    color: #000000;
+    transform: translateY(-2px);
+}
+
+/* Pentagon Shape Animation */
+.hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.pentagon-logo-hero {
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 30px rgba(199, 120, 221, 0.6));
+    animation: rotate 20s linear infinite, pulse 4s ease-in-out infinite;
+    opacity: 0.9;
+}
+
+.pentagon-shape {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(45deg, #c778dd, #9d4edd, #e0aaff);
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+    animation: rotate 20s linear infinite, pulse 4s ease-in-out infinite;
+    opacity: 0.8;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.1); opacity: 1; }
+}
+
+/* Sections */
+section {
+    padding: 5rem 0;
+}
+
+.section-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #c778dd;
+    text-shadow: 0 0 20px rgba(199, 120, 221, 0.3);
+}
+
+/* Team Section */
+.team {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.team-member {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 2rem 1rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(199, 120, 221, 0.1);
+}
+
+.team-member:hover {
+    transform: translateY(-10px);
+    background: rgba(199, 120, 221, 0.1);
+    border-color: #c778dd;
+}
+
+.member-avatar {
+    margin-bottom: 1rem;
+}
+
+.avatar-placeholder {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #c778dd, #9d4edd);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 auto;
+    color: #ffffff;
+}
+
+.team-member h3 {
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.role {
+    color: #c778dd;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.game {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+/* Matches Section */
+.matches-grid {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.match-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border-left: 4px solid #c778dd;
+    transition: all 0.3s ease;
+}
+
+.match-card:hover {
+    background: rgba(199, 120, 221, 0.1);
+    transform: translateX(10px);
+}
+
+.match-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.match-date {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.match-status {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.match-status.win {
+    background: rgba(199, 120, 221, 0.2);
+    color: #c778dd;
+}
+
+.match-status.loss {
+    background: rgba(255, 0, 102, 0.2);
+    color: #ff0066;
+}
+
+.match-status.upcoming {
+    background: rgba(157, 78, 221, 0.2);
+    color: #9d4edd;
+}
+
+.match-status.practice {
+    background: rgba(224, 170, 255, 0.2);
+    color: #e0aaff;
+}
+
+.match-teams {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.team-home {
+    color: #c778dd;
+    font-weight: 500;
+}
+
+.match-score {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.team-away {
+    color: #cccccc;
+}
+
+.match-game {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+/* Achievements Section */
+.achievements {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.achievement-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 255, 136, 0.1);
+}
+
+.achievement-card:hover {
+    transform: translateY(-10px);
+    background: rgba(0, 255, 136, 0.1);
+    border-color: #00ff88;
+}
+
+.achievement-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.achievement-card h3 {
+    color: #00ff88;
+    margin-bottom: 0.5rem;
+}
+
+/* Contact Section */
+.contact-content {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-info h3 {
+    color: #c778dd;
+    margin-bottom: 1rem;
+}
+
+.contact-info p {
+    color: #cccccc;
+    margin-bottom: 2rem;
+}
+
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.contact-link:hover {
+    background: rgba(199, 120, 221, 0.1);
+    color: #c778dd;
+    transform: translateY(-2px);
+}
+
+/* Footer */
+.footer {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-left h3 {
+    font-family: 'Orbitron', monospace;
+    color: #c778dd;
+    margin-bottom: 0.5rem;
+}
+
+.footer-left p, .footer-right p {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+    
+    .hamburger {
+        display: flex;
+    }
+    
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .pentagon-shape {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+    }
+    
+    .footer-content {
+        text-align: center;
+    }
+    
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .nav-container {
+        padding: 1rem;
+    }
+    
+    section {
+        padding: 3rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .achievements-grid {
+        grid-template-columns: 1fr;
+    }
+}
